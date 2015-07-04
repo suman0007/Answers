@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick="getEvenNumbersAndSum()">Click To get sum of even elements in Fibonacci Seq.<4000000</button>
+
+<p id="sum"></p>
+
+<script>
+function getEvenNumbersAndSum() {
+var total = 0,max = 4000000,next = 1,last = 1;
+while (next < max) {
+	var temp = next;
+	next = next + last;
+	last = temp;
+        if (next % 2 == 0) {
+		total += next;
+	}
+}
+document.getElementById("sum").innerHTML = "Sum of even numbers are: "+total;
+}
+</script>
+
+</body>
+</html>

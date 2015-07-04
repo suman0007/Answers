@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick="getPrimeNumbersAndSum()">Click To get Prime number within 1000 and their sum</button>
+
+<p id="primeNumbers"></p>
+<p id="sum"></p>
+
+<script>
+function getPrimeNumbersAndSum() {
+//Using Sieve of Eratosthenes 
+var n = 1000; //given range
+var i, j;
+var prime = new Array(n);
+for (i = 2; i < n ; i++) prime[i] = true;
+
+for (i = 2; i * i < n ; i++) {
+  if (prime[i]) {
+    for (j = 0; i * i + i * j < n ; j++) {
+      prime[i * i + i * j] = false;
+    }
+  }
+}
+
+var cnt = 0, sum = 0,prime_numbers=[];
+for (i = 2 ; i < n ; i++) {
+  if (prime[i]){
+	prime_numbers.push(i);
+	sum = sum+i;	
+  }
+}
+document.getElementById("primeNumbers").innerHTML = "prime numbers are:"+prime_numbers;
+document.getElementById("sum").innerHTML = "Sum of these prime numbers are: "+sum;
+}
+</script>
+
+</body>
+</html>
